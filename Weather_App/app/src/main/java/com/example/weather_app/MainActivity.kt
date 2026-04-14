@@ -227,7 +227,7 @@ fun pantalla2(){
                     Text(
                         "Soleado",
                         color=Color.White,
-                        fontSize=26.sp,
+                        fontSize=20.sp,
                     )
             }
             Spacer(modifier = Modifier.height(24.dp))
@@ -396,7 +396,7 @@ fun pantalla2(){
                                color=Color.White.copy(0.7f),
                                fontSize=16.sp,
                                fontWeight=FontWeight.Bold)
-                           Text("1012hPa",
+                           Text("1012 hPa",
                                color=Color.White,
                                fontSize=16.sp,
                                fontWeight=FontWeight.Bold)
@@ -437,7 +437,7 @@ fun pantalla2(){
                 ){
                     Row(modifier = Modifier.fillMaxWidth()
                         .padding(6.dp),
-                        horizontalArrangement = Arrangement.SpaceEvenly
+                        horizontalArrangement = Arrangement.SpaceBetween
                     ){
                         Text("Lun",
                             color=Color.White,
@@ -449,20 +449,22 @@ fun pantalla2(){
                             contentDescription = "Icono",
                             tint = Color.Yellow
                         )
-                        Text("28°",
-                            color=Color.White,
-                            fontSize=14.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                        Text(" / 22°",
-                            color=Color.White.copy(0.7f),
-                            fontSize=14.sp,
-                            fontWeight=FontWeight.Bold
-                        )
+                        Row(){
+                            Text("28°",
+                                color=Color.White,
+                                fontSize=14.sp,
+                                fontWeight=FontWeight.Bold
+                            )
+                            Text(" / 22°",
+                                color=Color.White.copy(0.7f),
+                                fontSize=14.sp,
+                                fontWeight=FontWeight.Bold
+                            )
+                        }
                     }
                     Row(modifier = Modifier.fillMaxWidth()
                         .padding(6.dp),
-                        horizontalArrangement = Arrangement.SpaceEvenly){
+                        horizontalArrangement = Arrangement.SpaceBetween){
                         Text("Mar",
                             color=Color.White,
                             fontSize=14.sp,
@@ -473,20 +475,22 @@ fun pantalla2(){
                             contentDescription = "Icono",
                             tint = Color.White
                         )
-                        Text("27°",
-                            color=Color.White,
-                            fontSize=14.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                        Text(" / 21°",
-                            color=Color.White.copy(0.7f),
-                            fontSize=14.sp,
-                            fontWeight=FontWeight.Bold
-                        )
+                        Row(){
+                            Text("27°",
+                                color=Color.White,
+                                fontSize=14.sp,
+                                fontWeight=FontWeight.Bold
+                            )
+                            Text(" / 21°",
+                                color=Color.White.copy(0.7f),
+                                fontSize=14.sp,
+                                fontWeight=FontWeight.Bold
+                            )
+                        }
                     }
                     Row(modifier = Modifier.fillMaxWidth()
                         .padding(6.dp),
-                        horizontalArrangement = Arrangement.SpaceEvenly){
+                        horizontalArrangement = Arrangement.SpaceBetween){
                         Text("Mié",
                             color=Color.White,
                             fontSize=14.sp,
@@ -497,20 +501,22 @@ fun pantalla2(){
                             contentDescription = "Icono",
                             tint = Color.Blue
                         )
-                        Text("26°",
-                            color=Color.White,
-                            fontSize=14.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                        Text(" / 20°",
-                            color=Color.White.copy(0.7f),
-                            fontSize=14.sp,
-                            fontWeight=FontWeight.Bold
-                        )
+                        Row(){
+                            Text("26°",
+                                color=Color.White,
+                                fontSize=14.sp,
+                                fontWeight=FontWeight.Bold
+                            )
+                            Text(" / 20°",
+                                color=Color.White.copy(0.7f),
+                                fontSize=14.sp,
+                                fontWeight=FontWeight.Bold
+                            )
+                        }
                     }
                     Row(modifier = Modifier.fillMaxWidth()
                         .padding(6.dp),
-                        horizontalArrangement = Arrangement.SpaceEvenly){
+                        horizontalArrangement = Arrangement.SpaceBetween){
                         Text("Jue",
                             color=Color.White,
                             fontSize=14.sp,
@@ -521,20 +527,22 @@ fun pantalla2(){
                             contentDescription = "Icono",
                             tint = Color.Yellow
                         )
-                        Text("25°",
-                            color=Color.White,
-                            fontSize=14.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                        Text(" / 19°",
-                            color=Color.White.copy(0.7f),
-                            fontSize=14.sp,
-                            fontWeight=FontWeight.Bold
-                        )
+                        Row(){
+                            Text("25°",
+                                color=Color.White,
+                                fontSize=14.sp,
+                                fontWeight=FontWeight.Bold
+                            )
+                            Text(" / 19°",
+                                color=Color.White.copy(0.7f),
+                                fontSize=14.sp,
+                                fontWeight=FontWeight.Bold
+                            )
+                        }
                     }
                     Row(modifier = Modifier.fillMaxWidth()
                         .padding(6.dp),
-                        horizontalArrangement = Arrangement.SpaceEvenly){
+                        horizontalArrangement = Arrangement.SpaceBetween){
                         Text("Vie",
                             color=Color.White,
                             fontSize=14.sp,
@@ -545,16 +553,19 @@ fun pantalla2(){
                             contentDescription = "Icono",
                             tint = Color.Yellow
                         )
-                        Text("24°",
-                            color=Color.White,
-                            fontSize=14.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                        Text(" / 18°",
-                            color=Color.White.copy(0.7f),
-                            fontSize=14.sp,
-                            fontWeight=FontWeight.Bold
-                        )
+                        Row(){
+                            Text("24°",
+                                color=Color.White,
+                                fontSize=14.sp,
+                                fontWeight=FontWeight.Bold
+                            )
+                            Text(" / 18°",
+                                color=Color.White.copy(0.7f),
+                                fontSize=14.sp,
+                                fontWeight=FontWeight.Bold
+                            )
+                        }
+
                     }
                 }
             }
