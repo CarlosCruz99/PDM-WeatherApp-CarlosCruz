@@ -25,6 +25,7 @@ import androidx.compose.material.icons.filled.CloudDownload
 import androidx.compose.material.icons.filled.CloudQueue
 import androidx.compose.material.icons.filled.CloudSync
 import androidx.compose.material.icons.filled.Cyclone
+import androidx.compose.material.icons.filled.ShieldMoon
 import androidx.compose.material.icons.filled.WbSunny
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
@@ -202,10 +203,11 @@ fun pantalla2(){
     )
 
     Box(
-        modifier= Modifier.fillMaxWidth().background(backGroundGradient)
+        modifier= Modifier.fillMaxWidth().background(backGroundGradient),
     ){
         Column(
-            modifier = Modifier.fillMaxSize().padding(20.dp)
+            modifier = Modifier.fillMaxSize().padding(20.dp),
+            verticalArrangement = Arrangement.Center
         ){
             Column(
                     horizontalAlignment = Alignment.CenterHorizontally
@@ -228,6 +230,115 @@ fun pantalla2(){
                         fontSize=26.sp,
                     )
             }
+            Spacer(modifier = Modifier.height(24.dp))
+
+            Column(){
+                Text("PRONÓSTICO POR HORAS",
+                    color=Color.White.copy(0.7f),
+                    fontSize=16.sp,
+                    fontWeight=FontWeight.Bold)
+                Row(
+                    modifier = Modifier.fillMaxWidth().padding(6.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ){
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text("Ahora",
+                            color=Color.White,
+                            fontSize=14.sp,
+                            fontWeight=FontWeight.Bold
+                        )
+                        Icon(
+                            imageVector = Icons.Default.WbSunny,
+                            contentDescription = "Icono",
+                            tint = Color.Yellow
+                        )
+                        Text("25°",
+                            color=Color.White,
+                            fontSize=14.sp,
+                            fontWeight=FontWeight.Bold
+                        )
+                    }
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text("14:00",
+                            color=Color.White,
+                            fontSize=14.sp,
+                            fontWeight=FontWeight.Bold
+                        )
+                        Icon(
+                            imageVector = Icons.Default.WbSunny,
+                            contentDescription = "Icono",
+                            tint = Color.Yellow
+                        )
+                        Text("26°",
+                            color=Color.White,
+                            fontSize=14.sp,
+                            fontWeight=FontWeight.Bold
+                        )
+                    }
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text("16:00",
+                            color=Color.White,
+                            fontSize=14.sp,
+                            fontWeight=FontWeight.Bold
+                        )
+                        Icon(
+                            imageVector = Icons.Default.Cloud,
+                            contentDescription = "Icono",
+                            tint = Color.White
+                        )
+                        Text("24°",
+                            color=Color.White,
+                            fontSize=14.sp,
+                            fontWeight=FontWeight.Bold
+                        )
+                    }
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text("18:00",
+                            color=Color.White,
+                            fontSize=14.sp,
+                            fontWeight=FontWeight.Bold
+                        )
+                        Icon(
+                            imageVector = Icons.Default.Cloud,
+                            contentDescription = "Icono",
+                            tint = Color.White
+                        )
+                        Text("22°",
+                            color=Color.White,
+                            fontSize=14.sp,
+                            fontWeight=FontWeight.Bold
+                        )
+                    }
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text("20:00",
+                            color=Color.White,
+                            fontSize=14.sp,
+                            fontWeight=FontWeight.Bold
+                        )
+                        Icon(
+                            imageVector = Icons.Default.ShieldMoon,
+                            contentDescription = "Icono",
+                            tint = Color.Yellow
+                        )
+                        Text("20°",
+                            color=Color.White,
+                            fontSize=14.sp,
+                            fontWeight=FontWeight.Bold
+                        )
+                    }
+                }
+            }
+
             Spacer(modifier = Modifier.height(24.dp))
 
             Card(
