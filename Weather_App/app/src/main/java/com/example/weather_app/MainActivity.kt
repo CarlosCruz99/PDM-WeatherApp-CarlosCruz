@@ -43,6 +43,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -61,7 +62,6 @@ class MainActivity : ComponentActivity() {
 
                 // Pantalla detallada (gradiente morada):
                 pantalla2()
-
             }
         }
     }
@@ -125,54 +125,9 @@ fun pantalla1() {
                         .padding(6.dp),
                     horizontalArrangement = Arrangement.SpaceEvenly,
                 ){
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ){
-                        Text(
-                            "HUM",
-                            color=Color.White.copy(0.7f),
-                            fontSize=16.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                        Text(
-                            "65%",
-                            color=Color.White,
-                            fontSize=16.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                    }
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ){
-                        Text(
-                            "VIENTO",
-                            color=Color.White.copy(0.7f),
-                            fontSize=16.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                        Text(
-                            "12 km/h",
-                            color=Color.White,
-                            fontSize=16.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                    }
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Text(
-                            "LLUVIA",
-                            color=Color.White.copy(0.7f),
-                            fontSize=16.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                        Text(
-                            "10%",
-                            color=Color.White,
-                            fontSize=16.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                    }
+                    elementosClima("HUM", "65%")
+                    elementosClima("VIENTO", "12 km/h")
+                    elementosClima("LLUVIA", "10%")
                 }
             }
 
@@ -188,6 +143,26 @@ fun pantalla1() {
                 Text("ACTUALIZAR")
             }
         }
+    }
+}
+
+@Composable
+fun elementosClima(title: String, amount: String){
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            title,
+            color=Color.White.copy(0.7f),
+            fontSize=16.sp,
+            fontWeight=FontWeight.Bold
+        )
+        Text(
+            amount,
+            color=Color.White,
+            fontSize=16.sp,
+            fontWeight=FontWeight.Bold
+        )
     }
 }
 
@@ -241,101 +216,11 @@ fun pantalla2(){
                     modifier = Modifier.fillMaxWidth().padding(6.dp),
                     horizontalArrangement = Arrangement.SpaceBetween
                 ){
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Text("Ahora",
-                            color=Color.White,
-                            fontSize=14.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                        Icon(
-                            imageVector = Icons.Default.WbSunny,
-                            contentDescription = "Icono",
-                            tint = Color.Yellow
-                        )
-                        Text("25°",
-                            color=Color.White,
-                            fontSize=14.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                    }
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Text("14:00",
-                            color=Color.White,
-                            fontSize=14.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                        Icon(
-                            imageVector = Icons.Default.WbSunny,
-                            contentDescription = "Icono",
-                            tint = Color.Yellow
-                        )
-                        Text("26°",
-                            color=Color.White,
-                            fontSize=14.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                    }
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Text("16:00",
-                            color=Color.White,
-                            fontSize=14.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                        Icon(
-                            imageVector = Icons.Default.Cloud,
-                            contentDescription = "Icono",
-                            tint = Color.White
-                        )
-                        Text("24°",
-                            color=Color.White,
-                            fontSize=14.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                    }
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Text("18:00",
-                            color=Color.White,
-                            fontSize=14.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                        Icon(
-                            imageVector = Icons.Default.Cloud,
-                            contentDescription = "Icono",
-                            tint = Color.White
-                        )
-                        Text("22°",
-                            color=Color.White,
-                            fontSize=14.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                    }
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Text("20:00",
-                            color=Color.White,
-                            fontSize=14.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                        Icon(
-                            imageVector = Icons.Default.ShieldMoon,
-                            contentDescription = "Icono",
-                            tint = Color.Yellow
-                        )
-                        Text("20°",
-                            color=Color.White,
-                            fontSize=14.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                    }
+                    pronosticoPorHora("Ahora", Icons.Default.WbSunny, Color.Yellow, "25°")
+                    pronosticoPorHora("14:00", Icons.Default.WbSunny, Color.Yellow, "26°")
+                    pronosticoPorHora("16:00", Icons.Default.Cloud, Color.White,"24°")
+                    pronosticoPorHora("18:00", Icons.Default.Cloud, Color.White, "22°")
+                    pronosticoPorHora("20:00", Icons.Default.ShieldMoon, Color.Yellow, "20°")
                 }
             }
 
@@ -360,59 +245,15 @@ fun pantalla2(){
                        modifier = Modifier.fillMaxWidth().padding(6.dp),
                        horizontalArrangement = Arrangement.SpaceBetween
                    ){
-                       Column(
-                           horizontalAlignment = Alignment.CenterHorizontally
-                       ) {
-                           Text("Humedad",
-                               color=Color.White.copy(0.7f),
-                               fontSize=16.sp,
-                               fontWeight=FontWeight.Bold)
-                           Text("65%",
-                               color=Color.White,
-                               fontSize=16.sp,
-                               fontWeight=FontWeight.Bold)
-                       }
-                       Column(
-                           horizontalAlignment = Alignment.CenterHorizontally
-                       ) {
-                           Text("Viento",
-                               color=Color.White.copy(0.7f),
-                               fontSize=16.sp,
-                               fontWeight=FontWeight.Bold)
-                           Text("12 km/h",
-                               color=Color.White,
-                               fontSize=16.sp,
-                               fontWeight=FontWeight.Bold)
-                       }
+                       detallesClima("Humedad", "65%")
+                       detallesClima("Viento", "12 km/h")
                    }
                    Row(
                        modifier = Modifier.fillMaxWidth().padding(6.dp),
                        horizontalArrangement = Arrangement.SpaceBetween
                    ){
-                       Column(
-                           horizontalAlignment = Alignment.CenterHorizontally
-                       ) {
-                           Text("Presión",
-                               color=Color.White.copy(0.7f),
-                               fontSize=16.sp,
-                               fontWeight=FontWeight.Bold)
-                           Text("1012 hPa",
-                               color=Color.White,
-                               fontSize=16.sp,
-                               fontWeight=FontWeight.Bold)
-                       }
-                       Column(
-                           horizontalAlignment = Alignment.CenterHorizontally
-                       ) {
-                           Text("UV",
-                               color=Color.White.copy(0.7f),
-                               fontSize=16.sp,
-                               fontWeight=FontWeight.Bold)
-                           Text("5",
-                               color=Color.White,
-                               fontSize=16.sp,
-                               fontWeight=FontWeight.Bold)
-                       }
+                       detallesClima("Presión", "1012 hPa")
+                       detallesClima("UV", "5")
                    }
                }
             }
@@ -435,141 +276,83 @@ fun pantalla2(){
                         .padding(12.dp),
                     verticalArrangement = Arrangement.SpaceEvenly,
                 ){
-                    Row(modifier = Modifier.fillMaxWidth()
-                        .padding(6.dp),
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ){
-                        Text("Lun",
-                            color=Color.White,
-                            fontSize=14.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                        Icon(
-                            imageVector = Icons.Default.WbSunny,
-                            contentDescription = "Icono",
-                            tint = Color.Yellow
-                        )
-                        Row(){
-                            Text("28°",
-                                color=Color.White,
-                                fontSize=14.sp,
-                                fontWeight=FontWeight.Bold
-                            )
-                            Text(" / 22°",
-                                color=Color.White.copy(0.7f),
-                                fontSize=14.sp,
-                                fontWeight=FontWeight.Bold
-                            )
-                        }
-                    }
-                    Row(modifier = Modifier.fillMaxWidth()
-                        .padding(6.dp),
-                        horizontalArrangement = Arrangement.SpaceBetween){
-                        Text("Mar",
-                            color=Color.White,
-                            fontSize=14.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                        Icon(
-                            imageVector = Icons.Default.Cloud,
-                            contentDescription = "Icono",
-                            tint = Color.White
-                        )
-                        Row(){
-                            Text("27°",
-                                color=Color.White,
-                                fontSize=14.sp,
-                                fontWeight=FontWeight.Bold
-                            )
-                            Text(" / 21°",
-                                color=Color.White.copy(0.7f),
-                                fontSize=14.sp,
-                                fontWeight=FontWeight.Bold
-                            )
-                        }
-                    }
-                    Row(modifier = Modifier.fillMaxWidth()
-                        .padding(6.dp),
-                        horizontalArrangement = Arrangement.SpaceBetween){
-                        Text("Mié",
-                            color=Color.White,
-                            fontSize=14.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                        Icon(
-                            imageVector = Icons.Default.CloudDownload,
-                            contentDescription = "Icono",
-                            tint = Color.Blue
-                        )
-                        Row(){
-                            Text("26°",
-                                color=Color.White,
-                                fontSize=14.sp,
-                                fontWeight=FontWeight.Bold
-                            )
-                            Text(" / 20°",
-                                color=Color.White.copy(0.7f),
-                                fontSize=14.sp,
-                                fontWeight=FontWeight.Bold
-                            )
-                        }
-                    }
-                    Row(modifier = Modifier.fillMaxWidth()
-                        .padding(6.dp),
-                        horizontalArrangement = Arrangement.SpaceBetween){
-                        Text("Jue",
-                            color=Color.White,
-                            fontSize=14.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                        Icon(
-                            imageVector = Icons.Default.CloudQueue,
-                            contentDescription = "Icono",
-                            tint = Color.Yellow
-                        )
-                        Row(){
-                            Text("25°",
-                                color=Color.White,
-                                fontSize=14.sp,
-                                fontWeight=FontWeight.Bold
-                            )
-                            Text(" / 19°",
-                                color=Color.White.copy(0.7f),
-                                fontSize=14.sp,
-                                fontWeight=FontWeight.Bold
-                            )
-                        }
-                    }
-                    Row(modifier = Modifier.fillMaxWidth()
-                        .padding(6.dp),
-                        horizontalArrangement = Arrangement.SpaceBetween){
-                        Text("Vie",
-                            color=Color.White,
-                            fontSize=14.sp,
-                            fontWeight=FontWeight.Bold
-                        )
-                        Icon(
-                            imageVector = Icons.Default.CloudSync,
-                            contentDescription = "Icono",
-                            tint = Color.Yellow
-                        )
-                        Row(){
-                            Text("24°",
-                                color=Color.White,
-                                fontSize=14.sp,
-                                fontWeight=FontWeight.Bold
-                            )
-                            Text(" / 18°",
-                                color=Color.White.copy(0.7f),
-                                fontSize=14.sp,
-                                fontWeight=FontWeight.Bold
-                            )
-                        }
-
-                    }
+                    pronosticoSemanal("Lun", Icons.Default.WbSunny, Color.Yellow, "28°", " / 22°")
+                    pronosticoSemanal("Mar", Icons.Default.Cloud, Color.White, "27°", " / 21°")
+                    pronosticoSemanal("Mié", Icons.Default.CloudDownload, Color.Blue, "26°", " / 20°")
+                    pronosticoSemanal("Jue", Icons.Default.CloudQueue, Color.Yellow, "25°", " / 19°")
+                    pronosticoSemanal("Vie", Icons.Default.CloudSync, Color.Yellow, "24°", " / 18°")
                 }
             }
+        }
+    }
+}
 
+@Composable
+fun pronosticoPorHora(title: String, icon: ImageVector, iconColor: Color, amount: String){
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(title,
+            color=Color.White,
+            fontSize=14.sp,
+            fontWeight=FontWeight.Bold
+        )
+        Icon(
+            imageVector = icon,
+            contentDescription = "Icono",
+            tint = iconColor
+        )
+        Text(amount,
+            color=Color.White,
+            fontSize=14.sp,
+            fontWeight=FontWeight.Bold
+        )
+    }
+}
+
+@Composable
+fun detallesClima(title: String, amount: String){
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(title,
+            color=Color.White.copy(0.7f),
+            fontSize=16.sp,
+            fontWeight=FontWeight.Bold)
+        Text(amount,
+            color=Color.White,
+            fontSize=16.sp,
+            fontWeight=FontWeight.Bold)
+    }
+}
+
+@Composable
+fun pronosticoSemanal(title: String, icon: ImageVector, iconColor: Color, maxAmount: String, minAmount: String){
+    Row(modifier = Modifier.fillMaxWidth()
+        .padding(6.dp),
+        horizontalArrangement = Arrangement.SpaceBetween
+    ){
+        Text(title,
+            color=Color.White,
+            fontSize=14.sp,
+            fontWeight=FontWeight.Bold
+        )
+        Icon(
+            imageVector = icon,
+            contentDescription = "Icono",
+            tint = iconColor
+        )
+        Row(){
+            Text(maxAmount,
+                color=Color.White,
+                fontSize=14.sp,
+                fontWeight=FontWeight.Bold
+            )
+            Text(minAmount,
+                color=Color.White.copy(0.7f),
+                fontSize=14.sp,
+                fontWeight=FontWeight.Bold
+            )
         }
     }
 }
